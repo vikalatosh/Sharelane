@@ -13,6 +13,7 @@ public class SignUpTest {
         // Установка переменной среды
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // Открыть страницу https://sharelane.com/cgi-bin/register.py
         driver.get("https://sharelane.com/cgi-bin/register.py");
         // Ввести любые 5 цифр (например 12345)
@@ -31,6 +32,7 @@ public class SignUpTest {
         // Установка переменной среды
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // Открыть страницу https://sharelane.com/cgi-bin/register.py
         driver.get("https://sharelane.com/cgi-bin/register.py");
         // Ввести любые 6 цифр (например 123456)
@@ -49,6 +51,7 @@ public class SignUpTest {
         // Установка переменной среды
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // Открыть страницу https://sharelane.com/cgi-bin/register.py
         driver.get("https://sharelane.com/cgi-bin/register.py");
         // Ввести любые 4 цифр (например 1234)
@@ -67,6 +70,7 @@ public class SignUpTest {
         // Установка переменной среды
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // Открыть страницу https://sharelane.com/cgi-bin/register.py
         driver.get("https://sharelane.com/cgi-bin/register.py");
         // Ввести любые 5 цифр (например 12345)
@@ -90,6 +94,7 @@ public class SignUpTest {
         // Установка переменной среды
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // Открыть страницу https://sharelane.com/cgi-bin/register.py
         driver.get("https://sharelane.com/cgi-bin/register.py");
         // Ввести любые 5 цифр (например 12345)
@@ -115,6 +120,7 @@ public class SignUpTest {
         // Установка переменной среды
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // Открыть страницу https://sharelane.com/cgi-bin/register.py
         driver.get("https://sharelane.com/cgi-bin/register.py");
         // Ввести любые 5 цифр (например 12345)
@@ -140,6 +146,7 @@ public class SignUpTest {
         // Установка переменной среды
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // Открыть страницу https://sharelane.com/cgi-bin/register.py
         driver.get("https://sharelane.com/cgi-bin/register.py");
         // Ввести любые 5 цифр (например 12345)
@@ -165,6 +172,7 @@ public class SignUpTest {
         // Установка переменной среды
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // Открыть страницу https://sharelane.com/cgi-bin/register.py
         driver.get("https://sharelane.com/cgi-bin/register.py");
         // Ввести любые 5 цифр (например 12345)
@@ -190,6 +198,7 @@ public class SignUpTest {
         // Установка переменной среды
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // Открыть страницу https://sharelane.com/cgi-bin/register.py
         driver.get("https://sharelane.com/cgi-bin/register.py");
         // Ввести любые 5 цифр (например 12345)
@@ -207,6 +216,7 @@ public class SignUpTest {
         // Установка переменной среды
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // Открыть страницу https://sharelane.com/cgi-bin/register.py
         driver.get("https://sharelane.com/cgi-bin/register.py");
         // Ввести любые 5 цифр (например 12345)
@@ -246,18 +256,15 @@ public class SignUpTest {
         // Убедиться, что мы на странице Sign Up, Account is created!
         boolean Created = driver.findElement(By.cssSelector("[class=confirmation_message]")).isDisplayed();
         Assert.assertTrue(Created, "регистрация пройдена не успешно");
-        // Сохранить Email и Password
-        String email = driver.findElement(By.xpath("/html/body/center/table/tbody/tr[6]/td/table/tbody/tr[4]/td/table" +
-                "/tbody/tr[1]/td[2]/b")).getText();
-        String password = driver.findElement(By.xpath("/html/body/center/table/tbody/tr[6]/td/table/tbody/tr[4]/td/" +
-                "table/tbody/tr[2]/td[2]")).getText();
+        // Сохранить Email
+        String email = driver.findElement(By.xpath("(//b)[2]")).getText();
         driver.findElement(By.linkText("here")).click();
         // Убедиться, что мы на главной странице (Login)
         boolean Login = driver.findElement(By.cssSelector("[value=Login]")).isDisplayed();
         Assert.assertTrue(Login, "не перешли на главную страницу");
         // Ввести Email и Password
         driver.findElement(By.name("email")).sendKeys(email);
-        driver.findElement(By.name("password")).sendKeys(password);
+        driver.findElement(By.name("password")).sendKeys("1111");
         driver.findElement(By.cssSelector("[value=Login]")).click();
         // Убедиться, что авторизация пройдена успешно
         boolean Logout = driver.findElement(By.linkText("Logout")).isDisplayed();
@@ -286,35 +293,29 @@ public class SignUpTest {
         // Убедиться, что мы на странице Sign Up, Account is created!
         boolean Created = driver.findElement(By.cssSelector("[class=confirmation_message]")).isDisplayed();
         Assert.assertTrue(Created, "регистрация пройдена не успешно");
-        // Сохранить Email и Password
-        String email = driver.findElement(By.xpath("/html/body/center/table/tbody/tr[6]/td/table/tbody/tr[4]/td/table" +
-                "/tbody/tr[1]/td[2]/b")).getText();
-        String password = driver.findElement(By.xpath("/html/body/center/table/tbody/tr[6]/td/table/tbody/tr[4]/td/" +
-                "table/tbody/tr[2]/td[2]")).getText();
+        // Сохранить Email
+        String email = driver.findElement(By.xpath("(//b)[2]")).getText();
         driver.findElement(By.linkText("here")).click();
         // Убедиться, что мы на главной странице (Login)
         boolean Login = driver.findElement(By.cssSelector("[value=Login]")).isDisplayed();
         Assert.assertTrue(Login, "не перешли на главную страницу");
         // Ввести Email и Password
         driver.findElement(By.name("email")).sendKeys(email);
-        driver.findElement(By.name("password")).sendKeys(password);
+        driver.findElement(By.name("password")).sendKeys("1111");
         driver.findElement(By.cssSelector("[value=Login]")).click();
         // Убедиться, что авторизация пройдена успешно
         boolean Logout = driver.findElement(By.linkText("Logout")).isDisplayed();
         Assert.assertTrue(Logout, "Авторизация не пройдена");
         // Выбрать книгу
-        driver. findElement(By.xpath("/html/body/center/table/tbody/tr[5]/td/table/tbody/tr/td[1]/table/tbody" +
-                "/tr[3]/td/a")).click();
+        driver. findElement(By.xpath("//a[contains(@href, 'show_book')]")).click();
         // Добавить в корзину
-        String author = driver.findElement(By.xpath("/html/body/center/table/tbody/tr[5]/td/table/tbody/tr/td[2]/p[1]" +
-                "/b")).getText();
-        driver.findElement(By.xpath("/html/body/center/table/tbody/tr[5]/td/table/tbody/tr/td[2]/p[2]/a")).click();
+        String author = driver.findElement(By.xpath("(//b)[1]")).getText();
+        driver.findElement(By.xpath("//a[contains(@href, 'add_to_cart')]")).click();
         // Убедиться, что книга выбранного автора добавлена в корзину
         boolean message = driver.findElement(By.cssSelector("[class=confirmation_message]")).isDisplayed();
         Assert.assertTrue(message, "Сообщение о добавлении книги отсутствует");
-        driver.findElement(By.xpath("/html/body/center/table/tbody/tr[1]/td/table/tbody/tr/td[3]/a")).click();
-        String author1 = driver.findElement(By.xpath("/html/body/center/table/tbody/tr[5]/td/table/tbody/tr[2]/td[1]"))
-                .getText();
+        driver.findElement(By.xpath("//a[contains(@href, 'shopping_cart')]")).click();
+        String author1 = driver.findElement(By.xpath("//tr[5]//tr[2]/td[1]")).getText();
         Assert.assertEquals(author1, author,"Книга выбранного автора не добавлена в Shopping Cart");
         // Закрыть браузер
         driver.quit();
